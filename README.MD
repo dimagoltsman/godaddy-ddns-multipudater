@@ -1,4 +1,4 @@
-# Godaddy Ip Updater
+# Godaddy Ip Updater (like duckdns updater but for godaddy)
 
 First you have to generate api key and secret in your godaddy account: https://developer.godaddy.com/keys
 
