@@ -37,12 +37,12 @@ def do_renew():
         info = requests.get(f'https://api.godaddy.com/v1/domains/{fulld}/records/A/{subd}', headers = {"Authorization": f"sso-key {KEY}:{SECRET}"}).json()
         # [{'data': '1.1.1.1', 'name': 'test', 'ttl': 600, 'type': 'A'}]
         current_ip_in_gd = info[0]['data']
-    
+        ttl_in_gd = info[0]['ttl']
         
-        logger.info(f'ip of {subd}.{fulld} in godaddy is set to: {current_ip_in_gd}')
+        logger.info(f'ip of {subd}.{fulld} in godaddy is set to: {current_ip_in_gd} TTL: {TTL}')
     
-        if current_ip_in_gd != current_machine_ip:
-            logger.info(f'updating subdomain {subd} from {current_ip_in_gd} to {current_machine_ip}')
+        if current_ip_in_gd != current_machine_ip or ttl_in_gd != TTL:
+            logger.info(f'updating subdomain {subd} from {current_ip_in_gd} to {current_machine_ip}, TTL: {TTL}')
             data=[{
                "data": current_machine_ip,
                "port": 65535,
@@ -61,10 +61,7 @@ def do_renew():
     
     
 def get_external_ip():
-    site = str(requests.get(f'http://checkip.dyndns.org/').content)
-    grab = re.findall('([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)', site)
-    address = grab[0]
-    return address    
+    return requests.get('https://ipv4.icanhazip.com/').content.decode("utf-8").strip()
     
 
 
