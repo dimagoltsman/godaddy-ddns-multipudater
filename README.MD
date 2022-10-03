@@ -1,6 +1,6 @@
-# Godaddy Ip Updater
+# Godaddy Ip Updater (like duckdns updater but for godaddy)
 
-First you have to generate api key and secret in your godaddy account: https://developer.godaddy.com/keys
+First you have to generate api key and secret in your godaddy account: https://developer.godaddy.com/keys  (make sure you generate a Production key)
 
 Add subdomain with an A record and set it to any ip.
 
