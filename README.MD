@@ -16,7 +16,7 @@ Run simple docker:
         -e TTL='600' \
         -e DOMAINS='subdomain|domain.com,subdomain2|domain.com' \
         -e RENEW_TIME='600' \
-        gdy
+        dimagoltsman/godaddy-ddns-multipudater
 
 
 Compose:
