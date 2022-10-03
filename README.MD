@@ -30,3 +30,6 @@ Compose:
         - TTL=600
         - DOMAINS=subdomain|domain.com,subdomain2|domain.com
         - RENEW_TIME=600
+
+
+change to `dimagoltsman/godaddy-ddns-multipudater:arm64` for arm architecture
